@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Todo App</title>
+	<title>Libreta</title>
 </svelte:head>
 
 <style>
@@ -27,7 +27,7 @@
 
 	.papel {
 		position: relative;
-		width: 800px;
+		max-width: 800px;
 		margin: 0 auto;
 		background: #fafafa;
 		border-radius: 10px;
