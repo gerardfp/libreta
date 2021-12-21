@@ -1,5 +1,14 @@
-export default function handler(req, res) {
-    const { name } = req.query;
-    res.status(200).send(`Hello ${name}!`);
+var faunadb = require('faunadb'),
+  q = faunadb.query
+var client = new faunadb.Client({
+    secret: process.env.FAUNA_ADMIN_KEY,
+    domain: 'db.fauna.com',
+    port: 443,
+    scheme: 'https',
+});
+  
+  export default function handler(req, res) {
+   
+    res.send(q.Query(q.Collection('test')));
   }
   
