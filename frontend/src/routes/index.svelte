@@ -4,7 +4,7 @@
 
 <style>
 	@import url(https://fonts.googleapis.com/css?family=Caveat);
-	*{font-family:'Caveat';color:mediumblue;box-sizing:border-box;}
+	*{font-family:'Caveat';color:mediumblue;box-sizing:border-box;font-size:1.2em}
 	input{border:2px solid #e8e8e8;padding:0.25em 1em;width:100%;margin:1em 0;}
 	input:focus{outline:none;border:2px solid #D44147;}
 	input::placeholder{color:rgb(185, 210, 255);}
