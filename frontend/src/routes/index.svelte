@@ -19,7 +19,12 @@
 
 <script context="module">
 	export async function load({ fetch }) {
-		const a = process.env.VITE_VERCEL_URL;
+		console.log("LOAD--------------------------------------------");
+		const x = process.env;
+		console.log("X-----------------------------------------------");
+		console.log(x);
+		const a = x.VITE_VERCEL_URL;
+		console.log("a-----------------------------------------------");
 		console.log(a);
 		console.log("PROCESSS ENV ----------------------------------");
 		console.log(process.env);		
