@@ -1,5 +1,6 @@
-var faunadb = require('faunadb'),
-  q = faunadb.query
+import faunadb from 'faunadb';
+q = faunadb.query
+
 var client = new faunadb.Client({
     secret: process.env.FAUNA_ADMIN_KEY,
     domain: 'db.fauna.com',
@@ -9,6 +10,6 @@ var client = new faunadb.Client({
   
   export default function handler(req, res) {
    
-    res.send(q.Query(q.Collection('test')));
+    res.send(client.query(q.Collection('test')));
   }
   
