@@ -22,7 +22,7 @@
 		console.log(process.env);
 		console.log(import.meta.env);
 		// console.log(VITE_VERCEL_URL);
-		return { props: { tareas: (await (await fetch(`${import.meta.env.VITE_VERCEL_URL}/api/`)).json()) }};
+		return { props: { tareas: (await (await fetch(`${process.env.VITE_VERCEL_URL}/api/`)).json()) }};
 		// return { props: { tareas: (await (await fetch(`${import.meta.env.VITE_INTERNAL_API_ENDPOINT}`)).json()) }};
 	}
 </script>
