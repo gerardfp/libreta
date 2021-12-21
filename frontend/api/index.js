@@ -1,5 +1,5 @@
 import faunadb from 'faunadb';
-q = faunadb.query
+const q = faunadb.query
 
 var client = new faunadb.Client({
     secret: process.env.FAUNA_ADMIN_KEY,

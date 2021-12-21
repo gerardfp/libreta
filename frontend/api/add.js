@@ -1,5 +1,5 @@
 import faunadb from 'faunadb';
-q = faunadb.query
+const q = faunadb.query
 var client = new faunadb.Client({
     secret: process.env.FAUNA_ADMIN_KEY,
     domain: 'db.fauna.com',
@@ -8,11 +8,11 @@ var client = new faunadb.Client({
 });
   
 export default function handler(req, res) {
-const data = req.body; 
+const { desc } = req.query; 
 client.query(
     q.Create(
         q.Collection('test'),
-        { data: { data } }
+        { data: { desc: desc } }
     ));
     res.send("added");
 }
