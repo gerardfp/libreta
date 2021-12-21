@@ -1,0 +1,42 @@
+version: '3.1'
+
+services:
+
+  frontend:
+    build: 
+      context:
+        ./frontend
+      args:
+        VITE_API_ENDPOINT: ${VITE_API_ENDPOINT:-http://localhost:5000}
+        VITE_INTERNAL_API_ENDPOINT: http://backend:5000
+    image: frontend
+    restart: always
+    ports:
+      - 3000:3000
+
+  backend:
+    build: ./backend
+    image: backend
+    restart: always
+    ports:
+      - 5000:5000
+    environment:
+      MONGODB_URL: mongodb://root:example@mongo:27017/
+      PORT: 5000
+
+  mongo:
+    image: mongo:4.4
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
