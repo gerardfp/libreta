@@ -10,6 +10,6 @@ var client = new faunadb.Client({
   
   export default function handler(req, res) {
    
-    res.send(client.query(q.Documents(q.Collection('test'))));
+    res.send(JSON.stringify(client.query(q.Map(q.Documents(q.Collection('test'))))));
   }
   
