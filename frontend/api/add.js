@@ -1,4 +1,4 @@
-const { PSDB } = require('planetscale-node')
+import { PSDB } from 'planetscale-node';
 const conni = new PSDB('main')
   
 export default function handler(req, res) {
