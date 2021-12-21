@@ -20,11 +20,10 @@
 <script context="module">
 	export async function load({ fetch }) {
 		console.log("PROC---------------------");
-		console.log(process.env);
-		console.log("META--------------------");
-		console.log(import.meta.env);		
+		console.log(process.env.VERCEL_URL);
+	
 				return { props: { tareas: (await (await fetch(`https://libreta.vercel.app/api/`)).json()) }};
-				
+
 		// return { props: { tareas: (await (await fetch(`${import.meta.env.VITE_INTERNAL_API_ENDPOINT}`)).json()) }};
 	}
 </script>
