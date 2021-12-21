@@ -4,7 +4,14 @@ import adapter from '@sveltejs/adapter-vercel';
 const config = {
 	kit: {
 		adapter: adapter(),
+
+		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
+		vite: {
+            define: {
+                'process.env': process.env,
+            },
+        },
 	}
 };
 
