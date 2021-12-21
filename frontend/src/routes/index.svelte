@@ -19,7 +19,7 @@
 
 <script context="module">
 	export async function load({ fetch }) {
-		return { props: { tareas: (await (await fetch(`/api/`)).json()) }};
+		return { props: { tareas: (await (await fetch(`${import.meta.env.VITE_VERCEL_URL}`)).json()) }};
 		// return { props: { tareas: (await (await fetch(`${import.meta.env.VITE_INTERNAL_API_ENDPOINT}`)).json()) }};
 	}
 </script>
@@ -53,7 +53,7 @@
 	{#each tareas as tarea, index}
 	<div>
 		<span on:click={()=>del(index)} class="tarea-eliminar">⊗</span>
-		<span class:tachada={tarea.checked} class="tarea-descripcion" on:click={()=>check(index)}>{tarea.descripcion}</span>
+		<span class:tachada={tarea.checked} class="tarea-descripcion" on:click={()=>check(index)}>{tarea.descr}</span>
 	</div>
 	{/each}
 </div>
