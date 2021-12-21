@@ -1,8 +1,8 @@
 const { PSDB } = require('planetscale-node')
-const conn = new PSDB('main')
+const conni = new PSDB('main')
   
 export default function handler(req, res) {
-    const [rows, fields] = await conn.query('select * from reminders')
-    res.send(JSON.stringify(rows));
+    const [rowsi, fields] = await conni.query('select * from reminders')
+    res.send(JSON.stringify(rowsi));
 }
   
