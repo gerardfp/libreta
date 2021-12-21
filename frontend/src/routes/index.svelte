@@ -19,7 +19,7 @@
 
 <script context="module">
 	export async function load({ fetch }) {
-		return { props: { tareas: (await (await fetch(`http://backend:5000`)).json()) }};
+		return { props: { tareas: (await (await fetch(`/api/`)).json()) }};
 		// return { props: { tareas: (await (await fetch(`${import.meta.env.VITE_INTERNAL_API_ENDPOINT}`)).json()) }};
 	}
 </script>
@@ -30,7 +30,8 @@
 
 	async function add(){
 		const nuevaTarea = {descripcion: descripcionNuevaTarea};
-		fetch(`${import.meta.env.VITE_API_ENDPOINT}/add`, {method:'POST', headers: {"Content-Type":"application/json"}, body: JSON.stringify(nuevaTarea)});
+		//fetch(`${import.meta.env.VITE_API_ENDPOINT}/add`, {method:'POST', headers: {"Content-Type":"application/json"}, body: JSON.stringify(nuevaTarea)});
+		fetch(`/api/add?descr=${descripcionNuevaTarea}`);
 		tareas = [...tareas, nuevaTarea];
 		descripcionNuevaTarea = '';
 	}
