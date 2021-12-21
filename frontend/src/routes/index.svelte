@@ -34,21 +34,22 @@
 	export let tareas = [];
 
 	async function add(){
-		const nuevaTarea = {descripcion: descripcionNuevaTarea};
 		//fetch(`${import.meta.env.VITE_API_ENDPOINT}/add`, {method:'POST', headers: {"Content-Type":"application/json"}, body: JSON.stringify(nuevaTarea)});
 		fetch(`/api/add?descr=${descripcionNuevaTarea}`);
-		tareas = [...tareas, nuevaTarea];
+		tareas = [...tareas, {descr: descripcionNuevaTarea}];
 		descripcionNuevaTarea = '';
 	}
 
 	async function del(index){
-		fetch(`${import.meta.env.VITE_API_ENDPOINT}/del/${tareas[index]._id}`);
+		//fetch(`${import.meta.env.VITE_API_ENDPOINT}/del/${tareas[index]._id}`);
+		fetch(`/api/del?id=${tareas[index].id}`);
 		tareas.splice(index, 1);
 		tareas = tareas;
 	}
 
 	async function check(index){
-		fetch(`${import.meta.env.VITE_API_ENDPOINT}/check/${tareas[index]._id}`);
+		//fetch(`${import.meta.env.VITE_API_ENDPOINT}/check/${tareas[index]._id}`);
+		fetch(`/api/check?id=${tareas[index].id}`);
 		tareas[index].checked ^= 1;
 	}
 </script>
