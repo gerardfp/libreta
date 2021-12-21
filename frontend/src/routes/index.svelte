@@ -22,7 +22,7 @@
 		console.log("PROC---------------------");
 		console.log(process.env.VERCEL_URL);
 	
-		return { props: { tareas: (await (await fetch(`${process.env.VERCEL_URL}/api/`)).json()) }};
+		return { props: { tareas: (await (await fetch(`https://${process.env.VERCEL_URL}/api/`)).json()) }};
 		//return { props: { tareas: (await (await fetch(`https://libreta.vercel.app/api/`)).json()) }};
 
 		// return { props: { tareas: (await (await fetch(`${import.meta.env.VITE_INTERNAL_API_ENDPOINT}`)).json()) }};
