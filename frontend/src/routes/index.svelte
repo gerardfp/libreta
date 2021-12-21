@@ -20,8 +20,13 @@
 <script context="module">
 	export async function load({ fetch }) {
 		const a = process.env.VITE_VERCEL_URL;
-		// console.log(VITE_VERCEL_URL);
-		return { props: { tareas: (await (await fetch(`https://libreta.vercel.app/api/`)).json()) }};
+		console.log(a);
+		console.log("PROCESSS ENV ----------------------------------");
+		console.log(process.env);		
+		
+		console.log("META ENV ----------------------------------");
+		console.log(import.meta.env);		
+				return { props: { tareas: (await (await fetch(`https://libreta.vercel.app/api/`)).json()) }};
 		// return { props: { tareas: (await (await fetch(`${import.meta.env.VITE_INTERNAL_API_ENDPOINT}`)).json()) }};
 	}
 </script>
