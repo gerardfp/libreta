@@ -24,6 +24,7 @@
 		console.log("META--------------------");
 		console.log(import.meta.env);		
 				return { props: { tareas: (await (await fetch(`https://libreta.vercel.app/api/`)).json()) }};
+				
 		// return { props: { tareas: (await (await fetch(`${import.meta.env.VITE_INTERNAL_API_ENDPOINT}`)).json()) }};
 	}
 </script>
