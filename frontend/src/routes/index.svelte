@@ -35,7 +35,8 @@
 
 	async function add(){
 		//fetch(`${import.meta.env.VITE_API_ENDPOINT}/add`, {method:'POST', headers: {"Content-Type":"application/json"}, body: JSON.stringify(nuevaTarea)});
-		const nuevaTarea = await(await fetch(`/api/add?descr=${descripcionNuevaTarea}`)).json();
+		//const nuevaTarea = await(await fetch(`/api/add?descr=${descripcionNuevaTarea}`)).json();
+		fetch(`/api/add?descr=${descripcionNuevaTarea}`);
 		tareas = [...tareas, {descr: descripcionNuevaTarea}];
 		descripcionNuevaTarea = '';
 	}
