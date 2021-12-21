@@ -1,15 +1,8 @@
-import faunadb from 'faunadb';
-const q = faunadb.query
-
-var client = new faunadb.Client({
-    secret: process.env.FAUNA_ADMIN_KEY,
-    domain: 'db.fauna.com',
-    port: 443,
-    scheme: 'https',
-});
+const { PSDB } = require('planetscale-node')
+const conn = new PSDB('main')
   
-  export default function handler(req, res) {
-   
-    res.send(JSON.stringify(client.query(q.Map(q.Documents(q.Collection('test'))))));
-  }
+export default function handler(req, res) {
+    const [rows, fields] = await conn.query('select * from reminders')
+    res.send(JSON.stringify(rows));
+}
   
