@@ -8,5 +8,5 @@ export default async function handler(req, res) {
     } = req
 
     const [rows, fields] = await conn.query(`insert into todos (descr) values ('${descr}')`)
-    res.send("ok");
+    res.send(rows);
 }
