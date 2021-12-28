@@ -38,7 +38,7 @@
 		const nuevaTarea = await(await fetch(`/api/add?descr=${descripcionNuevaTarea}`)).json();
 		console.log(nuevaTarea);
 		//fetch(`/api/add?descr=${descripcionNuevaTarea}`);
-		tareas = [...tareas, {descr: descripcionNuevaTarea}];
+		tareas = [...tareas, {id: nuevaTarea.insertId, descr: descripcionNuevaTarea}];
 		descripcionNuevaTarea = '';
 	}
 
