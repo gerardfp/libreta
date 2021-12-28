@@ -1,7 +1,3 @@
-<svelte:head>
-	<title>Libreta</title>
-</svelte:head>
-
 <style>
 	@import url(https://fonts.googleapis.com/css?family=Caveat);
 	*{font-family:'Caveat';color:mediumblue;box-sizing:border-box;font-size:1.2em}
