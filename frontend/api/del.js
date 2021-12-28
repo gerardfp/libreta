@@ -7,6 +7,6 @@ export default async function handler(req, res) {
         method
     } = req
 
-    const [rows, fields] = await conn.query(`delete from todos where id = ${id}`)
+    const [rows, fields] = await conn.query(`delete from tareas where id = ${id}`)
     res.send("ok");
 }

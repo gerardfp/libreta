@@ -28,7 +28,7 @@
 	export let tareas = [];
 
 	async function add(){
-		const nuevaTarea = await(await fetch(`/api/add?descr=${descripcionNuevaTarea}`)).json();
+		const nuevaTarea = await(await fetch(`/api/add?descripcion=${descripcionNuevaTarea}`)).json();
 		tareas = [...tareas, {id: nuevaTarea.insertId, descripcion: descripcionNuevaTarea}];
 		descripcionNuevaTarea = '';
 	}

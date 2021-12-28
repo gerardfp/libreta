@@ -7,6 +7,6 @@ export default async function handler(req, res) {
         method
     } = req
 
-    const [rows, fields] = await conn.query(`update todos set tachada = NOT tachada where id = ${id}`);
+    const [rows, fields] = await conn.query(`update tareas set tachada = NOT tachada where id = ${id}`);
     res.send("ok");
 }
