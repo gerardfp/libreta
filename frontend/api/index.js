@@ -1,7 +1,7 @@
 import { PSDB } from 'planetscale-node';
-const conni = new PSDB('main')
+const conn = new PSDB('main')
   
 export default async function handler(req, res) {
-    const [rowsi, fields] = await conni.query(`select * from todos`)
-    res.send(rowsi);
+    const [rows, fields] = await conn.query(`select * from todos`)
+    res.send(rows);
 }

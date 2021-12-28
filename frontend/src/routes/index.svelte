@@ -19,13 +19,7 @@
 
 <script context="module">
 	export async function load({ fetch }) {
-		console.log("PROC---------------------");
-		console.log(process.env.VERCEL_URL);
-	
 		return { props: { tareas: (await (await fetch(`https://${process.env.VERCEL_URL}/api/`)).json()) }};
-		//return { props: { tareas: (await (await fetch(`https://libreta.vercel.app/api/`)).json()) }};
-
-		// return { props: { tareas: (await (await fetch(`${import.meta.env.VITE_INTERNAL_API_ENDPOINT}`)).json()) }};
 	}
 </script>
 
@@ -34,25 +28,20 @@
 	export let tareas = [];
 
 	async function add(){
-		//fetch(`${import.meta.env.VITE_API_ENDPOINT}/add`, {method:'POST', headers: {"Content-Type":"application/json"}, body: JSON.stringify(nuevaTarea)});
 		const nuevaTarea = await(await fetch(`/api/add?descr=${descripcionNuevaTarea}`)).json();
-		console.log(nuevaTarea);
-		//fetch(`/api/add?descr=${descripcionNuevaTarea}`);
-		tareas = [...tareas, {id: nuevaTarea.insertId, descr: descripcionNuevaTarea}];
+		tareas = [...tareas, {id: nuevaTarea.insertId, descripcion: descripcionNuevaTarea}];
 		descripcionNuevaTarea = '';
 	}
 
 	async function del(index){
-		//fetch(`${import.meta.env.VITE_API_ENDPOINT}/del/${tareas[index]._id}`);
 		fetch(`/api/del?id=${tareas[index].id}`);
 		tareas.splice(index, 1);
 		tareas = tareas;
 	}
 
 	async function check(index){
-		//fetch(`${import.meta.env.VITE_API_ENDPOINT}/check/${tareas[index]._id}`);
 		fetch(`/api/check?id=${tareas[index].id}`);
-		tareas[index].checked ^= 1;
+		tareas[index].tachada ^= 1;
 	}
 </script>
 
@@ -61,7 +50,7 @@
 	{#each tareas as tarea, index}
 	<div>
 		<span on:click={()=>del(index)} class="tarea-eliminar">⊗</span>
-		<span class:tachada={tarea.checked} class="tarea-descripcion" on:click={()=>check(index)}>{tarea.descr}</span>
+		<span class:tachada={tarea.tachada} class="tarea-descripcion" on:click={()=>check(index)}>{tarea.descripcion}</span>
 	</div>
 	{/each}
 </div>
