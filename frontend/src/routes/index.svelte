@@ -8,7 +8,7 @@
 	input{border:2px solid #e8e8e8;padding:0.25em 1em;width:100%;margin:1em 0;}
 	input:focus{outline:none;border:2px solid #D44147;}
 	input::placeholder{color:rgb(185, 210, 255);}
-	.papel{position:relative;max-width:800px;margin:0 auto;background:#fafafa;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.3);padding:24px 16px 24px 60px;}
+	.papel{position:relative;max-width:800px;margin:0 auto;background:#fafa0a;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.3);padding:24px 16px 24px 60px;}
 	.papel:before{content:'';position:absolute;top:0;bottom:0;left:0;width:60px;background:radial-gradient(#575450 6px,transparent 7px) repeat-y;background-size:30px 30px;border-right:3px solid #D44147;}
 	.papel div{padding:0.5em;display:flex;border-bottom: 2px solid #91D1D3;cursor:pointer;}
 	.tarea-eliminar{color:#e29699;}
