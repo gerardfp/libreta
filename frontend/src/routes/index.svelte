@@ -21,7 +21,7 @@
 	export async function load({ fetch }) {
 		console.log("loading...");
 		//return { props: { tareas: (await (await fetch(`https://${process.env.VERCEL_URL}/api/`)).json()) }};
-		return { props: { tareas: (await (await fetch(`/api/`)).json()) }};
+		return { props: { tareas: (await (await fetch(`/api/get`)).json()) }};
 	}
 </script>
 
