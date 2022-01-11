@@ -28,19 +28,19 @@
 	export let tareas = [];
 
 	async function add(){
-		const nuevaTarea = await(await fetch(`/api/add?descripcion=${descripcionNuevaTarea}`)).json();
+		const nuevaTarea = await(await fetch(`https://${process.env.VERCEL_URL}/api/add?descripcion=${descripcionNuevaTarea}`)).json();
 		tareas = [...tareas, {id: nuevaTarea.insertId, descripcion: descripcionNuevaTarea}];
 		descripcionNuevaTarea = '';
 	}
 
 	async function del(index){
-		fetch(`/api/del?id=${tareas[index].id}`);
+		fetch(`https://${process.env.VERCEL_URL}/api/del?id=${tareas[index].id}`);
 		tareas.splice(index, 1);
 		tareas = tareas;
 	}
 
 	async function check(index){
-		fetch(`/api/check?id=${tareas[index].id}`);
+		fetch(`https://${process.env.VERCEL_URL}/api/check?id=${tareas[index].id}`);
 		tareas[index].tachada ^= 1;
 	}
 </script>
