@@ -27,6 +27,7 @@
 	let descripcionNuevaTarea = '';
 	export let tareas = [];
 
+	console.log(process.env);
 	async function add(){
 		const nuevaTarea = await(await fetch(`https://${process.env.VERCEL_URL}/api/add?descripcion=${descripcionNuevaTarea}`)).json();
 		tareas = [...tareas, {id: nuevaTarea.insertId, descripcion: descripcionNuevaTarea}];
