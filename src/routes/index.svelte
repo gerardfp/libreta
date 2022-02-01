@@ -29,7 +29,8 @@
 
 	async function add(){
 		const nuevaTarea = await(await fetch(`/api/add?descripcion=${descripcionNuevaTarea}`)).json();
-		tareas = [...tareas, {id: nuevaTarea.insertId, descripcion: descripcionNuevaTarea}];
+		tareas.push({id: nuevaTarea.insertId, descripcion: descripcionNuevaTarea});
+		tareas = tareas;  // forzar renderizado
 		descripcionNuevaTarea = '';
 	}
 
